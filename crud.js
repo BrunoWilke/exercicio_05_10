@@ -1,9 +1,10 @@
 let form = document.getElementById('cadastro');
+listarDados()    
 
 form.addEventListener('submit', function(){
     
     //definir array principal
-    let storage = (localStorage.ALUNOS) ? JSON.parse(localStorage.ALUNOS) : [];
+    let storage = (sessionStorage.ALUNOS) ? JSON.parse(sessionStorage.ALUNOS) : [];
 
     let aluno = document.querySelector('.aluno').value;
     let notas = document.querySelector('.notas').value;
@@ -43,7 +44,7 @@ form.addEventListener('submit', function(){
         msgSuccess = 'Notas Aualizadas com Sucesso'
     }
     //salvar no local storage
-    localStorage.setItem('ALUNOS',JSON.stringify(storage));
+    sessionStorage.setItem('ALUNOS',JSON.stringify(storage));
         
     alert(msgSuccess);
 
@@ -54,8 +55,8 @@ form.addEventListener('submit', function(){
 })
 
 function listarDados(){
-    if(localStorage.ALUNOS){
-        let dados = JSON.parse(localStorage.ALUNOS);
+    if(sessionStorage.ALUNOS){
+        let dados = JSON.parse(sessionStorage.ALUNOS);
         let estrutura = '';
 
         for(const i in dados){
@@ -83,18 +84,19 @@ function listarDados(){
 }
 
 function deleteItem(id){
-    let dados = (localStorage.ALUNOS) ? JSON.parse(localStorage.ALUNOS) : [];
+    let dados = (sessionStorage.ALUNOS) ? JSON.parse(sessionStorage.ALUNOS) : [];
     dados.splice(id,1);
     if(dados.length > 0){
-       localStorage.setItem('ALUNOS', JSON.stringify(dados));
+        sessionStorage.setItem('ALUNOS', JSON.stringify(dados));
     }else{
-        localStorage.setItem('ALUNOS','');    
+        sessionStorage.setItem('ALUNOS','');    
     }
     
     listarDados();
 }
+
 function updateItem(id){
-    let dados = (localStorage.ALUNOS) ? JSON.parse(localStorage.ALUNOS) : [];
+    let dados = (sessionStorage.ALUNOS) ? JSON.parse(sessionStorage.ALUNOS) : [];
     let dadosSelecionados = dados[id];
 
     document.querySelector('.aluno').value = dadosSelecionados.aluno;
@@ -105,5 +107,5 @@ function updateItem(id){
     document.querySelector('#idRegistro').value = id;
 }
 
-
+listarDados();
 
