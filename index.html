@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Exercicio 05/10</title>
+</head>
+<body> 
+    <table class="table table-secondary table-striped table-hover">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col">ALUNOS</th>
+                <th scope="col">NOTAS</th>
+                <th scope="col">MÉDIA</th>
+                <th scope="col">SITUAÇÃO</th>
+                <th scope="col">DELETAR</th>
+                <th scope="col">ATUALIZAR</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+    <form action="" id="cadastro" onsubmit="return false">
+        <input type="hidden" id="idRegistro" value="">
+        
+        <label for="aluno">Aluno</label>    
+        <input type="text" class="aluno" id="aluno">
+        <br>
+
+        <label for="notas">Notas Separadas por Vírgula ex:(10,9)</label>    
+        <input type="text" class="notas" id="notas">
+        <br>
+
+        <button type="submit" lass="btn btn-primary">CADASTRAR</button>
+    </form>
+    <script src="js/bootstrap.bundle.min.js"></script>  
+    <script src="crud.js"></script>
+</body>
+</html>
